@@ -16,7 +16,7 @@ model = TaskModel()
 @task_blueprint.route('/actividad/add_actividad', methods=['POST'])
 @cross_origin()
 def create_task():
-    content = model.add_actividad(request.json['nombre'], request.json['descripcion'], request.json['fechaInicio'], request.json['fechaFin'], request.json['enlaceReunion'], request.json['isProtocolar'], request.json['isPonencia'], request.json['isPanel'], request.json['isSeminario'], request.json['isConcurso'], request.json['bases']) 
+    content = model.add_actividad(request.json['nombre'], request.json['descripcion'], request.json['fechaInicio'], request.json['fechaFin'], request.json['enlaceReunion'], request.json['isProtocolar'], request.json['isPonencia'], request.json['isPanel'], request.json['isConcurso'], request.json['bases']) 
     return jsonify(content)
 
 @task_blueprint.route('/actividad/delete_actividad', methods=['POST'])

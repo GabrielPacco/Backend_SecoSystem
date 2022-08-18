@@ -11,7 +11,7 @@ class TaskModel:
         data = []
         content = {}
         for result in rv:
-            content = {'ID_Actividad': result[0], 'nombre': result[1], 'descripcion': result[2], 'fechaInicio': result[3], 'fechaFin': result[4], 'enlaceReunion': result[5], 'isProtocolar': result[6], 'isPonencia': result[7], 'isPanel': result[8], 'isSeminario': result[9], 'isConcurso': result[10], 'bases': result[11]}
+            content = {'ID_Actividad': result[0], 'nombre': result[1], 'descripcion': result[2], 'fechaInicio': result[3], 'fechaFin': result[4], 'enlaceReunion': result[5], 'isProtocolar': result[6], 'isPonencia': result[7], 'isPanel': result[8], 'isConcurso': result[9], 'bases': result[10]}
             data.append(content)
             content = {}
         return data
@@ -21,7 +21,7 @@ class TaskModel:
         data = []
         content = {}
         for result in rv:
-            content = {'ID_Actividad': result[0], 'nombre': result[1], 'descripcion': result[2], 'fechaInicio': result[3], 'fechaFin': result[4], 'enlaceReunion': result[5], 'isProtocolar': result[6], 'isPonencia': result[7], 'isPanel': result[8], 'isSeminario': result[9], 'isConcurso': result[10], 'bases': result[11]}
+            content = {'ID_Actividad': result[0], 'nombre': result[1], 'descripcion': result[2], 'fechaInicio': result[3], 'fechaFin': result[4], 'enlaceReunion': result[5], 'isProtocolar': result[6], 'isPonencia': result[7], 'isPanel': result[8], 'isConcurso': result[9], 'bases': result[10]}
             data.append(content)
             content = {}
         return data
@@ -36,15 +36,14 @@ class TaskModel:
             'isProtocolar' : isProtocolar,
             'isPonencia' : isPonencia,
             'isPanel' : isPanel,
-            'isSeminario' : isSeminario,
             'isConcurso' : isConcurso,
             'bases' : bases
         }  
-        query = """insert into actividad (nombre, descripcion, fechaInicio, fechaFin, enlaceReunion, isProtocolar, isPonencia, isPanel, isSeminario, isConcurso, bases)
-            values (%(nombre)s, %(descripcion)s, %(fechaInicio)s, %(fechaFin)s, %(enlaceReunion)s, %(isProtocolar)s, %(isPonencia)s, %(isPanel)s, %(isSeminario)s, %(isConcurso)s, %(bases)s)"""    
+        query = """insert into actividad (nombre, descripcion, fechaInicio, fechaFin, enlaceReunion, isProtocolar, isPonencia, isPanel, isConcurso, bases)
+            values (%(nombre)s, %(descripcion)s, %(fechaInicio)s, %(fechaFin)s, %(enlaceReunion)s, %(isProtocolar)s, %(isPonencia)s, %(isPanel)s, %(isConcurso)s, %(bases)s)"""    
         cursor = self.mysql_pool.execute(query, params, commit=True)   
 
-        data = {'ID_Actividad': cursor.lastrowid, 'nombre': nombre, 'descripcion': descripcion, 'fechaInicio': fechaInicio, 'fechaFin': fechaFin, 'enlaceReunion': enlaceReunion, 'isProtocolar': isProtocolar, 'isPonencia': isPonencia, 'isPanel': isPanel, 'isSeminario': isSeminario, 'isConcurso': isConcurso, 'bases': bases}
+        data = {'ID_Actividad': cursor.lastrowid, 'nombre': nombre, 'descripcion': descripcion, 'fechaInicio': fechaInicio, 'fechaFin': fechaFin, 'enlaceReunion': enlaceReunion, 'isProtocolar': isProtocolar, 'isPonencia': isPonencia, 'isPanel': isPanel, 'isConcurso': isConcurso, 'bases': bases}
         return data
 
     def delete_actividad(self, ID_Actividad):    
