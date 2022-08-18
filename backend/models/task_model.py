@@ -26,7 +26,7 @@ class TaskModel:
             content = {}
         return data
 
-    def add_actividad(self, nombre, descripcion, fechaInicio, fechaFin, enlaceReunion, isProtocolar, isPonencia, isPanel, isSeminario, isConcurso, bases):
+    def add_actividad(self, nombre, descripcion, fechaInicio, fechaFin, enlaceReunion, isProtocolar, isPonencia, isPanel, isConcurso, bases):
         params = {
             'nombre' : nombre,
             'descripcion' : descripcion,
