@@ -56,7 +56,7 @@ class TaskModel:
         return data
 
 if __name__ == "__main__":    
-    tm = actividadModel()     
+    tm = TaskModel()     
 
     #print(tm.get_actividad(1))
     #print(tm.get_actividads())
