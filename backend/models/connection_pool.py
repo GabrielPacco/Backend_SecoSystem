@@ -94,7 +94,7 @@ class MySQLPool(object):
 
 if __name__ == "__main__":
     mysql_pool = MySQLPool()
-    sql = "select * from task"
+    sql = "select * from actividad"
         
     while True:
         t0 = time.time()
