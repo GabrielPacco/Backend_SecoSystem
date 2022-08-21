@@ -38,7 +38,7 @@ def tasks():
 @task_blueprint.route('/usuario/add_usuario', methods=['POST'])
 @cross_origin()
 def create_user():
-    content = model.add_usuario(request.json['nombre'], request.json['apellido'], request.json['contrasenia'], request.json['email']) 
+    content = model.add_usuario(request.json['nombre'], request.json['contrasenia'], request.json['email']) 
     return jsonify(content)
 
 @task_blueprint.route('/usuario/delete_usuario', methods=['POST'])
