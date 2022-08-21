@@ -33,3 +33,47 @@ def actividad():
 @cross_origin()
 def tasks():
     return jsonify(model.get_actividads())
+
+################# Usuario ################################
+@task_blueprint.route('/usuario/add_usuario', methods=['POST'])
+@cross_origin()
+def create_user():
+    content = model.add_usuario(request.json['nombre'], request.json['apellido'], request.json['contrasenia'], request.json['email']) 
+    return jsonify(content)
+
+@task_blueprint.route('/usuario/delete_usuario', methods=['POST'])
+@cross_origin()
+def delete_user():
+    return jsonify(model.delete_usuario(int(request.json['id_user'])))
+
+@task_blueprint.route('/usuario/get_usuario', methods=['POST'])
+@cross_origin()
+def user():
+    return jsonify(model.get_usuario(int(request.json['id_user'])))
+
+@task_blueprint.route('/usuario/get_usuarios', methods=['POST'])
+@cross_origin()
+def users():
+    return jsonify(model.get_usuarios())
+
+################# Invitado ################################
+@task_blueprint.route('/invitado/add_invitado', methods=['POST'])
+@cross_origin()
+def create_invitado():
+    content = model.add_invitado(request.json['universidad'], request.json['carrera'], request.json['grado']) 
+    return jsonify(content)
+
+@task_blueprint.route('/invitado/delete_invitado', methods=['POST'])
+@cross_origin()
+def delete_invitado():
+    return jsonify(model.delete_invitado(int(request.json['id_invitado'])))
+
+@task_blueprint.route('/invitado/get_invitado', methods=['POST'])
+@cross_origin()
+def invitado():
+    return jsonify(model.get_invitado(int(request.json['id_invitado'])))
+
+@task_blueprint.route('/invitado/get_invitados', methods=['POST'])
+@cross_origin()
+def invitados():
+    return jsonify(model.get_invitados())
