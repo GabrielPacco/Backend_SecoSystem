@@ -18,7 +18,7 @@ class TaskModel:
         return data
 
     # Funcion para obtener todas las actividades
-    def get_actividades(self):
+    def get_actividads(self):
         rv = self.mysql_pool.execute("SELECT * from actividad")  
         data = []
         content = {}
@@ -71,7 +71,7 @@ class TaskModel:
         return data
     
     # Funcion para obtener todos los administradores
-    def get_administradores(self):
+    def get_administradors(self):
         rv = self.mysql_pool.execute("SELECT * from administrador")  
         data = []
         content = {}
@@ -167,7 +167,7 @@ class TaskModel:
         return data
 
     # Funcion para obtener todos los contribuidores
-    def get_contribuidores(self):
+    def get_contribuidors(self):
         rv = self.mysql_pool.execute("SELECT * from contribuidor")  
         data = []
         content = {}
@@ -221,7 +221,7 @@ class TaskModel:
         return data
     
     # Funcion para obtener todas las ediciones
-    def get_ediciones(self):
+    def get_edicions(self):
         rv = self.mysql_pool.execute("SELECT * from edicion")  
         data = []
         content = {}
@@ -318,7 +318,7 @@ class TaskModel:
         return data
 
     # Funcion para obtener todos los paneles
-    def get_paneles(self):
+    def get_panels(self):
         rv = self.mysql_pool.execute("SELECT * from panel")  
         data = []
         content = {}
@@ -413,7 +413,7 @@ class TaskModel:
         return data
 
     # Funcion para obtener todos los protocolares
-    def get_protocolares(self):
+    def get_protocolars(self):
         rv = self.mysql_pool.execute("SELECT * from protocolar")  
         data = []
         content = {}
