@@ -31,7 +31,7 @@ def actividad():
 
 @task_blueprint.route('/actividad/get_actividads', methods=['POST'])
 @cross_origin()
-def tasks():
+def actividads():
     return jsonify(model.get_actividads())
 
 
