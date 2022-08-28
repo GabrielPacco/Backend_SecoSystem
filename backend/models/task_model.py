@@ -6,53 +6,50 @@ class TaskModel:
 
 ################### Actividad ################################
     # Funcion para obtener una actividad por su ID
-    def get_actividad(self, ID_Actividad):    
-        params = {'ID_Actividad' : ID_Actividad}      
-        rv = self.mysql_pool.execute("SELECT * from actividad where ID_Actividad=%(ID_Actividad)s", params)                
+    def get_actividad(self, id_act):    
+        params = {'id_act' : id_act}      
+        rv = self.mysql_pool.execute("SELECT * from actividad where id_act=%(id_act)s", params)                
         data = []
         content = {}
         for result in rv:
-            content = {'ID_Actividad': result[0], 'nombre': result[1], 'descripcion': result[2], 'fechaInicio': result[3], 'fechaFin': result[4], 'enlaceReunion': result[5], 'isProtocolar': result[6], 'isPonencia': result[7], 'isPanel': result[8], 'isConcurso': result[9], 'bases': result[10]}
+            content = {'id_act': result[0], 'nombre': result[1], 'descripcion': result[2], 'fecha': result[3], 'hora_inicio': result[4], 'hora_fin': result[5], 'estado': result[6], 'enlace_reu': result[7]}
             data.append(content)
             content = {}
         return data
 
     # Funcion para obtener todas las actividades
-    def get_actividads(self):  
+    def get_actividades(self):
         rv = self.mysql_pool.execute("SELECT * from actividad")  
         data = []
         content = {}
         for result in rv:
-            content = {'ID_Actividad': result[0], 'nombre': result[1], 'descripcion': result[2], 'fechaInicio': result[3], 'fechaFin': result[4], 'enlaceReunion': result[5], 'isProtocolar': result[6], 'isPonencia': result[7], 'isPanel': result[8], 'isConcurso': result[9], 'bases': result[10]}
+            content = {'id_act': result[0], 'nombre': result[1], 'descripcion': result[2], 'fecha': result[3], 'hora_inicio': result[4], 'hora_fin': result[5], 'estado': result[6], 'enlace_reu': result[7]}
             data.append(content)
             content = {}
         return data
 
     # Funcion para agregar una actividad
-    def add_actividad(self, nombre, descripcion, fechaInicio, fechaFin, enlaceReunion, isProtocolar, isPonencia, isPanel, isConcurso, bases):
+    def add_actividad(self, nombre, descripcion, fecha, hora_inicio, hora_fin, estado, enlace_reu):
         params = {
             'nombre' : nombre,
             'descripcion' : descripcion,
-            'fechaInicio' : fechaInicio,
-            'fechaFin' : fechaFin,
-            'enlaceReunion' : enlaceReunion,
-            'isProtocolar' : isProtocolar,
-            'isPonencia' : isPonencia,
-            'isPanel' : isPanel,
-            'isConcurso' : isConcurso,
-            'bases' : bases
+            'fecha' : fecha,
+            'hora_inicio' : hora_inicio,
+            'hora_fin' : hora_fin,
+            'estado' : estado,
+            'enlace_reu' : enlace_reu
         }  
-        query = """insert into actividad (nombre, descripcion, fechaInicio, fechaFin, enlaceReunion, isProtocolar, isPonencia, isPanel, isConcurso, bases)
-            values (%(nombre)s, %(descripcion)s, %(fechaInicio)s, %(fechaFin)s, %(enlaceReunion)s, %(isProtocolar)s, %(isPonencia)s, %(isPanel)s, %(isConcurso)s, %(bases)s)"""    
+        query = """insert into actividad (nombre, descripcion, fecha, hora_inicio, hora_fin, estado, enlace_reu)
+            values (%(nombre)s, %(descripcion)s, %(fecha)s, %(hora_inicio)s, %(hora_fin)s, %(estado)s, %(enlace_reu)s)"""    
         cursor = self.mysql_pool.execute(query, params, commit=True)   
 
-        data = {'ID_Actividad': cursor.lastrowid, 'nombre': nombre, 'descripcion': descripcion, 'fechaInicio': fechaInicio, 'fechaFin': fechaFin, 'enlaceReunion': enlaceReunion, 'isProtocolar': isProtocolar, 'isPonencia': isPonencia, 'isPanel': isPanel, 'isConcurso': isConcurso, 'bases': bases}
+        data = {'id_act': cursor.lastrowid, 'nombre': nombre, 'descripcion': descripcion, 'fecha': fecha, 'hora_inicio': hora_inicio, 'hora_fin': hora_fin, 'estado': estado, 'enlace_reu': enlace_reu}
         return data
 
     # Funcion para eliminar una actividad
-    def delete_actividad(self, ID_Actividad):    
-        params = {'ID_Actividad' : ID_Actividad}      
-        query = """delete from actividad where ID_Actividad = %(ID_Actividad)s"""    
+    def delete_actividad(self, id_act):
+        params = {'id_act' : id_act}      
+        query = """delete from actividad where id_act = %(id_act)s"""    
         self.mysql_pool.execute(query, params, commit=True)   
 
         data = {'result': 1}
