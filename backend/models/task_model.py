@@ -112,7 +112,7 @@ class TaskModel:
         data = []
         content = {}
         for result in rv:
-            content = {'id_conc': result[0], 'participante': result[1], 'base': result[2], 'premio': result[3]}
+            content = {'id_conc': result[0], 'id_act': result[1], 'participante': result[2], 'base': result[3], 'premio': result[4]}
             data.append(content)
             content = {}
         return data
@@ -123,7 +123,7 @@ class TaskModel:
         data = []
         content = {}
         for result in rv:
-            content = {'id_conc': result[0], 'participante': result[1], 'base': result[2], 'premio': result[3]}
+            content = {'id_conc': result[0], 'id_act': result[1], 'participante': result[2], 'base': result[3], 'premio': result[4]}
             data.append(content)
             content = {}
         return data
@@ -215,7 +215,7 @@ class TaskModel:
         data = []
         content = {}
         for result in rv:
-            content = {'id_edi': result[0], 'anho': result[1], 'nombre': result[2]}
+            content = {'id_edi': result[0], 'id_act': result[1], 'anho': result[2], 'nombre': result[3]}
             data.append(content)
             content = {}
         return data
@@ -226,7 +226,7 @@ class TaskModel:
         data = []
         content = {}
         for result in rv:
-            content = {'id_edi': result[0], 'anho': result[1], 'nombre': result[2]}
+            content = {'id_edi': result[0], 'id_act': result[1], 'anho': result[2], 'nombre': result[3]}
             data.append(content)
             content = {}
         return data
