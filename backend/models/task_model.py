@@ -244,14 +244,6 @@ class TaskModel:
         data = {'id_edi': cursor.lastrowid, 'anho': anho, 'nombre': nombre}
         return data
     
-    # Funcion para eliminar una edición
-    def delete_edicion(self, id_edi):
-        params = {'id_edi' : id_edi}      
-        query = """delete from edicion where id_edi = %(id_edi)s"""    
-        self.mysql_pool.execute(query, params, commit=True)   
-
-        data = {'result': 1}
-        return data
 
 ################### Invitado ################################
 
