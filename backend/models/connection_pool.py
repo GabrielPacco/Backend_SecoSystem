@@ -98,7 +98,7 @@ if __name__ == "__main__":
         
     while True:
         t0 = time.time()
-        for i in range(10):
+        for i in range(1):
             mysql_pool.execute(sql)
             print (i)
         print ("time cousumed:", time.time() - t0)
