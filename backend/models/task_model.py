@@ -501,5 +501,5 @@ if __name__ == "__main__":
     #print(tm.get_actividad(1))
     #print(tm.get_actividads())
     print(tm.delete_actividad(67))
-    print(tm.get_actividads())
+    print(tm.get_actividades())
     #print(tm.create_actividad('prueba 10', 'desde python'))
