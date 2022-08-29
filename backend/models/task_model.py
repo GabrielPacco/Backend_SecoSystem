@@ -6,7 +6,7 @@ class TaskModel:
 
 ################### Actividad ################################
     # Funcion para obtener una actividad por su ID
-    def get_actividad(self, id_act):    
+    def get_actividad(self, id_act):
         params = {'id_act' : id_act}      
         rv = self.mysql_pool.execute("SELECT * from actividad where id_act=%(id_act)s", params)                
         data = []
@@ -16,7 +16,7 @@ class TaskModel:
             data.append(content)
             content = {}
         return data
-
+    
     # Funcion para obtener todas las actividades
     def get_actividads(self):
         rv = self.mysql_pool.execute("SELECT * from actividad")  
