@@ -18,7 +18,7 @@ class TaskModel:
         return data
     
     # Funcion para obtener todas las actividades
-    def get_actividads(self):
+    def get_actividades(self):
         rv = self.mysql_pool.execute("SELECT * from actividad")  
         data = []
         content = {}

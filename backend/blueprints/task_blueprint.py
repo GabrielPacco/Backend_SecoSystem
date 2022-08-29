@@ -27,12 +27,12 @@ def delete_task():
 
 @task_blueprint.route('/actividad/get_actividad', methods=['POST'])
 @cross_origin()
-def get_task():
+def get_actividad():
     return jsonify(model.get_actividad(int(request.json['id_act'])))
 
 @task_blueprint.route('/actividad/get_actividades', methods=['POST'])
 @cross_origin()
-def get_tasks():
+def get_actividades():
     return jsonify(model.get_actividades())
 
 
